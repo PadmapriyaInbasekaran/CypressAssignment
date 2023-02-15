@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T13:33:52.045Z",
+    "end": "2023-02-15T13:33:56.021Z",
+    "duration": 3976,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d16581ab-c0d7-4594-8e2a-3269ea6cece1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\VerifyLoginTest.cy.js",
+      "file": "cypress\\e2e\\VerifyLoginTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "53fe9205-1ceb-4869-8d20-55fca8405467",
+          "title": "My SwagLab Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Saucedemo.com login is successful!",
+              "fullTitle": "My SwagLab Test Verify Saucedemo.com login is successful!",
+              "timedOut": null,
+              "duration": 1339,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", \"Products\");",
+              "err": {},
+              "uuid": "4ee8a459-ebd9-40bb-bc2e-0862e9cfd359",
+              "parentUUID": "53fe9205-1ceb-4869-8d20-55fca8405467",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4ee8a459-ebd9-40bb-bc2e-0862e9cfd359"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1339,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

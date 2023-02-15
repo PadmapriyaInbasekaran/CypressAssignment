@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-02-15T12:29:21.586Z",
+    "end": "2023-02-15T12:29:22.083Z",
+    "duration": 497,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fb378d12-da90-412c-858f-194fb77be10c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\VerifyCheckoutCompleteTest.cy.js",
+      "file": "cypress\\e2e\\VerifyCheckoutCompleteTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ffd5ecf7-d8d9-455b-aa13-951b37a6fbc6",
+          "title": "My SwagLab Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Checkout is done Successfully!",
+              "fullTitle": "My SwagLab Test Verify Checkout is done Successfully!",
+              "timedOut": null,
+              "duration": 163,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//LoginPage\nloginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", \"Products\");\n//ProductPage\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", \"Your Cart\");\n//CartPage\ncartPage.getListOfProductsAdded().should(\"have.text\", '2');\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", \"Checkout: Your Information\");\n//CheckoutPage\ncheckoutPage.getFirstNameTextBox().type(this.data.firstname);\ncheckoutPage.getLastNameTextBox().type(this.data.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.data.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", \"Checkout: Overview\");\n//CheckoutOverviewPage\ncheckoutOverviewPage.getCartItemQuantity().should(\"have.text\", \"11\");\ncheckoutOverviewPage.getCartItemPrice().should(\"have.text\", \"$29.99$9.99\");\ncheckoutOverviewPage.getCartTotal().should(\"have.text\", \"Total: $43.18\");\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", \"Checkout: Complete!\");\n//checkoutCompletePage\ncheckoutCompletePage.getThankyouTextMessage().should(\"have.text\", \"THANK YOU FOR YOUR ORDER\");\ncheckoutCompletePage.getBackToHomeButton().click();",
+              "err": {
+                "message": "CypressError: `cy.click()` failed because it requires a DOM element.\n\nNo elements in the current DOM matched your query:\n\n  > cy.get(#react-burger-menu-btn)\n\nBecause this error occurred during a `after all` hook we are skipping the remaining tests in the current suite: `My SwagLab Test`",
+                "estack": "CypressError: `cy.click()` failed because it requires a DOM element.\n\nNo elements in the current DOM matched your query:\n\n  > cy.get(#react-burger-menu-btn)\n\nBecause this error occurred during a `after all` hook we are skipping the remaining tests in the current suite: `My SwagLab Test`\n    at isElement (http://localhost:63947/__cypress/runner/cypress_runner.js:151942:70)\n    at validateType (http://localhost:63947/__cypress/runner/cypress_runner.js:151800:14)\n    at Object.isType (http://localhost:63947/__cypress/runner/cypress_runner.js:151831:7)\n    at $Cy.pushSubject (http://localhost:63947/__cypress/runner/cypress_runner.js:151539:22)\n    at wrapped (http://localhost:63947/__cypress/runner/cypress_runner.js:151125:19)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/VerifyCheckoutCompleteTest.cy.js:71:34)",
+                "diff": null
+              },
+              "uuid": "3c86d469-0b5e-4a20-9faa-d2d256bd9b26",
+              "parentUUID": "ffd5ecf7-d8d9-455b-aa13-951b37a6fbc6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3c86d469-0b5e-4a20-9faa-d2d256bd9b26"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 163,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

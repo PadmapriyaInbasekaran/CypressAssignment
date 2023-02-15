@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T13:02:30.926Z",
+    "end": "2023-02-15T13:02:36.104Z",
+    "duration": 5178,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2a54c532-9949-4f8f-8eee-da0a6fabdd90",
+      "title": "",
+      "fullFile": "cypress\\e2e\\VerifyCheckOutTest.cy.js",
+      "file": "cypress\\e2e\\VerifyCheckOutTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bdda21e0-131e-4976-93f2-0c0e69e4c1b4",
+          "title": "My SwagLab Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout details are correct!",
+              "fullTitle": "My SwagLab Test Verify checkout details are correct!",
+              "timedOut": null,
+              "duration": 2989,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", \"Products\");\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", \"Your Cart\");\ncartPage.getListOfProductsAdded().should(\"have.text\", '2');\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", \"Checkout: Your Information\");\ncheckoutPage.getFirstNameTextBox().type(this.data.firstname);\ncheckoutPage.getLastNameTextBox().type(this.data.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.data.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", \"Checkout: Overview\");",
+              "err": {},
+              "uuid": "a525b2bb-e259-4f23-a56e-850d93cced4d",
+              "parentUUID": "bdda21e0-131e-4976-93f2-0c0e69e4c1b4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a525b2bb-e259-4f23-a56e-850d93cced4d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2989,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

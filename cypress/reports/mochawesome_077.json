@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T15:05:48.595Z",
+    "end": "2023-02-15T15:05:55.237Z",
+    "duration": 6642,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f0cc42bd-d6bc-42f2-b817-a8494a91df1f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
+      "file": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "92218391-28fa-4ddf-a9a7-b848e0d3b031",
+          "title": "My SwagLab Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify quantity, price of the each item and total price in the cart!",
+              "fullTitle": "My SwagLab Test Verify quantity, price of the each item and total price in the cart!",
+              "timedOut": null,
+              "duration": 4081,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkoutData.checkoutPageText);\ncheckoutPage.getFirstNameTextBox().type(this.checkoutData.firstname);\ncheckoutPage.getLastNameTextBox().type(this.checkoutData.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", this.checkoutOverviewData.checkoutOverviewPageText);\ncheckoutOverviewPage.getCartItemQuantity().should(\"have.text\", this.checkoutOverviewData.cartItemQuantity);\ncheckoutOverviewPage.getCartItemPrice().should(\"have.text\", this.checkoutOverviewData.cartItemPrice);\ncheckoutOverviewPage.getCartTotal().should(\"have.text\", this.checkoutOverviewData.cartTotal);\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", this.checkoutCompleteData.checkoutCompletePageText);",
+              "err": {},
+              "uuid": "37f7cc53-b3f9-42a6-bea3-c03ca4618c11",
+              "parentUUID": "92218391-28fa-4ddf-a9a7-b848e0d3b031",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "37f7cc53-b3f9-42a6-bea3-c03ca4618c11"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4081,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
