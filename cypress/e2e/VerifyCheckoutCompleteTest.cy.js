@@ -78,7 +78,29 @@ describe('My SwagLab Test', function () {
                 expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2)
             }
         })
-        checkoutOverviewPage.getCartTotal().should("have.text", this.checkoutOverviewData.cartTotal)
+        var x
+        var y
+        var priceOfFirstItem
+        var priceOfSecondItem
+        var sum
+        checkoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {
+            if (index == 0) {
+                priceOfFirstItem = $el.text()
+                expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1)
+                x = priceOfFirstItem.split("$")
+                x = x[1]
+            }
+            if (index == 1) {
+                priceOfSecondItem = $el.text()
+                expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2)
+                y = priceOfSecondItem.split("$")
+                y = y[1]
+                sum = Number(x) + Number(y) + Number(3.20)
+                const finalValue = "Total: $" + sum
+                expect(finalValue).to.be.equal(this.checkoutOverviewData.cartTotal)
+            }
+
+        })
         checkoutOverviewPage.getFinishButton().click()
         checkoutCompletePage.getPageTitle().should("have.text", this.checkoutCompleteData.checkoutCompletePageText)
         checkoutCompletePage.getThankyouTextMessage().should("have.text", this.checkoutCompleteData.thankyouMessage)

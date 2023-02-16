@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-16T12:04:47.764Z",
-    "end": "2023-02-16T12:04:52.223Z",
-    "duration": 4459,
+    "start": "2023-02-16T15:42:07.953Z",
+    "end": "2023-02-16T15:42:11.488Z",
+    "duration": 3535,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "000a4958-8c6b-4a38-b7bb-a97e7f115052",
+      "uuid": "d5903448-6e79-407b-a580-43d7b7c94a01",
       "title": "",
       "fullFile": "cypress\\e2e\\VerifyLoginTest.cy.js",
       "file": "cypress\\e2e\\VerifyLoginTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4c31988b-6acd-4945-b13d-99b2d8d36b29",
+          "uuid": "7f41a43f-b130-48b2-af49-ab0b7344662d",
           "title": "My SwagLab Test Suite",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify Saucedemo.com login is successful!",
               "fullTitle": "My SwagLab Test Suite Verify Saucedemo.com login is successful!",
               "timedOut": null,
-              "duration": 1458,
+              "duration": 1243,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);",
               "err": {},
-              "uuid": "d970796e-da85-4579-ad08-2936f327e94e",
-              "parentUUID": "4c31988b-6acd-4945-b13d-99b2d8d36b29",
+              "uuid": "95be203c-0439-40b7-a4f8-7aff9a815795",
+              "parentUUID": "7f41a43f-b130-48b2-af49-ab0b7344662d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d970796e-da85-4579-ad08-2936f327e94e"
+            "95be203c-0439-40b7-a4f8-7aff9a815795"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1458,
+          "duration": 1243,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
