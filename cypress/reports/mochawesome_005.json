@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T04:37:55.591Z",
-    "end": "2023-02-15T04:37:59.344Z",
-    "duration": 3753,
+    "start": "2023-02-16T12:04:57.423Z",
+    "end": "2023-02-16T12:05:02.049Z",
+    "duration": 4626,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "f789234d-8e9d-4bcc-93b9-839861eb1803",
+      "uuid": "1981353d-be44-46c8-8c8b-5657d8a5f285",
       "title": "",
-      "fullFile": "cypress\\e2e\\LoginPageTest.cy.js",
-      "file": "cypress\\e2e\\LoginPageTest.cy.js",
+      "fullFile": "cypress\\e2e\\VerifyProductTest.cy.js",
+      "file": "cypress\\e2e\\VerifyProductTest.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "97078794-4a96-4187-b159-511da018196e",
+          "uuid": "dfcf2a9f-e4ee-4ae4-b8aa-404c78e0f181",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -35,32 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "Verify Saucedemo.com login is successful!",
-              "fullTitle": "My SwagLab Test Verify Saucedemo.com login is successful!",
+              "title": "Add products to cart!",
+              "fullTitle": "My SwagLab Test Add products to cart!",
               "timedOut": null,
-              "duration": 1355,
+              "duration": 2142,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "//LoginPage\nloginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", \"Products\");",
+              "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);",
               "err": {},
-              "uuid": "f25f6b2a-f279-4554-9b4b-9fd228a8f4ba",
-              "parentUUID": "97078794-4a96-4187-b159-511da018196e",
+              "uuid": "1e4f3288-4b53-42c9-be47-ed0e045fff14",
+              "parentUUID": "dfcf2a9f-e4ee-4ae4-b8aa-404c78e0f181",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f25f6b2a-f279-4554-9b4b-9fd228a8f4ba"
+            "1e4f3288-4b53-42c9-be47-ed0e045fff14"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1355,
+          "duration": 2142,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

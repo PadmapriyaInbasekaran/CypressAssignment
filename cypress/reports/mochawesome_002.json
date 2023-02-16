@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T04:37:22.669Z",
-    "end": "2023-02-15T04:37:28.721Z",
-    "duration": 6052,
+    "start": "2023-02-16T12:04:22.605Z",
+    "end": "2023-02-16T12:04:29.514Z",
+    "duration": 6909,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "30451762-1839-4d05-bcb7-669bee255a4b",
+      "uuid": "5631ab4d-71a7-4a8e-9342-bb71f505e531",
       "title": "",
-      "fullFile": "cypress\\e2e\\CheckoutCompletePageTest.cy.js",
-      "file": "cypress\\e2e\\CheckoutCompletePageTest.cy.js",
+      "fullFile": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
+      "file": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "eee8920b-63d4-4bc8-bb89-9961b52c634a",
+          "uuid": "6f6264ac-c453-4e3c-a922-6634ade1fb51",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -35,32 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "Verify Checkout is done Successfully!",
-              "fullTitle": "My SwagLab Test Verify Checkout is done Successfully!",
+              "title": "Verify quantity, price of the each item and total price in the cart!",
+              "fullTitle": "My SwagLab Test Verify quantity, price of the each item and total price in the cart!",
               "timedOut": null,
-              "duration": 3805,
+              "duration": 4063,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "//LoginPage\nloginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", \"Products\");\n//ProductPage\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", \"Your Cart\");\n//CartPage\ncartPage.getListOfProductsAdded().should(\"have.text\", '2');\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", \"Checkout: Your Information\");\n//CheckoutPage\ncheckoutPage.getFirstNameTextBox().type(this.data.firstname);\ncheckoutPage.getLastNameTextBox().type(this.data.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.data.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", \"Checkout: Overview\");\n//CheckoutOverviewPage\ncheckoutOverviewPage.getCartItemQuantity().should(\"have.text\", \"11\");\ncheckoutOverviewPage.getCartItemPrice().should(\"have.text\", \"$29.99$9.99\");\ncheckoutOverviewPage.getCartTotal().should(\"have.text\", \"Total: $43.18\");\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", \"Checkout: Complete!\");\n//checkoutCompletePage\ncheckoutCompletePage.getThankyouTextMessage().should(\"have.text\", \"THANK YOU FOR YOUR ORDER\");\ncheckoutCompletePage.getBackToHomeButton().click();",
+              "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkoutData.checkoutPageText);\ncheckoutPage.getFirstNameTextBox().type(this.checkoutData.firstname);\ncheckoutPage.getLastNameTextBox().type(this.checkoutData.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", this.checkoutOverviewData.checkoutOverviewPageText);\ncheckoutOverviewPage.getCartItemQuantity().each(($el, index, $list) => {\n  if (index == 0) {\n    const quantityOfFirstItem = $el.text();\n    expect(quantityOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity1);\n  }\n  if (index == 1) {\n    const quantityOfSecondItem = $el.text();\n    expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2);\n  }\n});\ncheckoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {\n  if (index == 0) {\n    const priceOfFirstItem = $el.text();\n    expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1);\n  }\n  if (index == 1) {\n    const priceOfSecondItem = $el.text();\n    expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2);\n  }\n});\ncheckoutOverviewPage.getCartTotal().should(\"have.text\", this.checkoutOverviewData.cartTotal);\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", this.checkoutCompleteData.checkoutCompletePageText);",
               "err": {},
-              "uuid": "0b99cc1b-5cd2-4a4e-91c2-998d6d736c20",
-              "parentUUID": "eee8920b-63d4-4bc8-bb89-9961b52c634a",
+              "uuid": "af5e1dd8-59bb-48c6-a6fd-a589844a275e",
+              "parentUUID": "6f6264ac-c453-4e3c-a922-6634ade1fb51",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "0b99cc1b-5cd2-4a4e-91c2-998d6d736c20"
+            "af5e1dd8-59bb-48c6-a6fd-a589844a275e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3805,
+          "duration": 4063,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

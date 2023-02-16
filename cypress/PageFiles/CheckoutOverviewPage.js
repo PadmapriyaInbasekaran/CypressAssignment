@@ -17,5 +17,11 @@ class CheckoutOverviewPage {
     getCartTotal() {
         return cy.get(".summary_total_label")
     }
+    getCartTotal() {
+        return cy.get(".summary_total_label")
+    }
+    getCartList() {
+        return cy.get(".cart_list")
+    }
 }
 export default CheckoutOverviewPage

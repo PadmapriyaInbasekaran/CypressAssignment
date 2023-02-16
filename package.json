@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run cypress-test || npm run post-test",
+    "test": "npm run chrome-browser || npm run post-test",
     "merge-reports": "mochawesome-merge ./cypress/reports/*.json | out-file -encoding ascii ./report1.json",
     "generate-html-reports": "marge ./report1.json --reportDir ./cypress/reports",
     "post-test": "npm run merge-reports && npm run generate-html-reports",
-    "cypress-test": "cypress run"
+    "cypress-test": "cypress run",
+    "head-mode": "npm run cypress-test -- --headed",
+    "chrome-browser": "npm run head-mode -- --browser chrome",
+    "pretest":"rimraf -r ./cypress/reports/*.json"
   },
   "author": "",
   "license": "ISC",

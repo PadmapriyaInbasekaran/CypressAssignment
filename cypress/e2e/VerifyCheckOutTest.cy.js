@@ -35,9 +35,7 @@ describe('My SwagLab Test', function () {
     })
 
     it('Verify checkout details are correct!', function () {
-        loginPage.getUserNameTextBox().type(this.loginData.username)
-        loginPage.getPasswordTextBox().type(this.loginData.password)
-        loginPage.getLoginButton().click()
+        loginPage.login(this.loginData.username, this.loginData.password)
         productPage.getPageTitle().should("have.text", this.productData.productPageText)
         productPage.getProducts().each(($el, index, $list) => {
             while (index < 2) {
@@ -59,8 +57,7 @@ describe('My SwagLab Test', function () {
     })
 
     after(function () {
-        productPage.getOpenMenu().click()
-        productPage.getLogoutOption().click()
+        cy.LogoutFromApplication()
         loginPage.getLoginButton().should("have.value", "Login")
     })
 })

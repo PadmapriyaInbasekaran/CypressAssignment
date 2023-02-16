@@ -12,19 +12,19 @@ describe('My SwagLab Test', function () {
         })
         cy.fixture('product').then(function (productData) {
             this.productData = productData
-          })
+        })
         cy.fixture('cart').then(function (cartData) {
             this.cartData = cartData
-          })
+        })
         cy.fixture('checkout').then(function (checkoutData) {
             this.checkoutData = checkoutData
-          })
+        })
         cy.fixture('checkoutcomplete').then(function (checkoutCompleteData) {
             this.checkoutCompleteData = checkoutCompleteData
-          })
+        })
         cy.fixture('checkoutoverview').then(function (checkoutOverviewData) {
             this.checkoutOverviewData = checkoutOverviewData
-          })
+        })
     })
 
     const loginPage = new LoginPage()
@@ -40,9 +40,7 @@ describe('My SwagLab Test', function () {
 
     it('Verify Checkout is done Successfully!', function () {
 
-        loginPage.getUserNameTextBox().type(this.loginData.username)
-        loginPage.getPasswordTextBox().type(this.loginData.password)
-        loginPage.getLoginButton().click()
+        loginPage.login(this.loginData.username, this.loginData.password)
         productPage.getPageTitle().should("have.text", this.productData.productPageText)
         productPage.getProducts().each(($el, index, $list) => {
             while (index < 2) {
@@ -52,7 +50,7 @@ describe('My SwagLab Test', function () {
         })
         productPage.getAddToCartButton().click()
         cartPage.getPageTitle().should("have.text", this.cartData.cartPageText)
-        cartPage.getListOfProductsAdded().should("have.text",  this.cartData.listOfProductsAdded)
+        cartPage.getListOfProductsAdded().should("have.text", this.cartData.listOfProductsAdded)
         cartPage.getCheckoutButton().click()
         checkoutPage.getPageTitle().should("have.text", this.checkoutData.checkoutPageText)
         checkoutPage.getFirstNameTextBox().type(this.checkoutData.firstname)
@@ -60,8 +58,26 @@ describe('My SwagLab Test', function () {
         checkoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode)
         checkoutPage.getContinueButton().click()
         checkoutOverviewPage.getPageTitle().should("have.text", this.checkoutOverviewData.checkoutOverviewPageText)
-        checkoutOverviewPage.getCartItemQuantity().should("have.text", this.checkoutOverviewData.cartItemQuantity)
-        checkoutOverviewPage.getCartItemPrice().should("have.text", this.checkoutOverviewData.cartItemPrice)
+        checkoutOverviewPage.getCartItemQuantity().each(($el, index, $list) => {
+            if (index == 0) {
+                const quantityOfFirstItem = $el.text()
+                expect(quantityOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity1)
+            }
+            if (index == 1) {
+                const quantityOfSecondItem = $el.text()
+                expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2)
+            }
+        })
+        checkoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {
+            if (index == 0) {
+                const priceOfFirstItem = $el.text()
+                expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1)
+            }
+            if (index == 1) {
+                const priceOfSecondItem = $el.text()
+                expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2)
+            }
+        })
         checkoutOverviewPage.getCartTotal().should("have.text", this.checkoutOverviewData.cartTotal)
         checkoutOverviewPage.getFinishButton().click()
         checkoutCompletePage.getPageTitle().should("have.text", this.checkoutCompleteData.checkoutCompletePageText)
@@ -71,8 +87,7 @@ describe('My SwagLab Test', function () {
     })
 
     after(function () {
-        productPage.getOpenMenu().click()
-        productPage.getLogoutOption().click()
+        cy.LogoutFromApplication()
         loginPage.getLoginButton().should("have.value", "Login")
     })
 })

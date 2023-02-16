@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T04:28:23.598Z",
-    "end": "2023-02-15T04:28:27.363Z",
-    "duration": 3765,
+    "start": "2023-02-16T12:03:55.415Z",
+    "end": "2023-02-16T12:04:00.068Z",
+    "duration": 4653,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "95c278dd-a142-464e-a4b7-e186d0c6686b",
+      "uuid": "bfd8e45f-143d-4436-b0d4-befb54dce87e",
       "title": "",
-      "fullFile": "cypress\\e2e\\ProductPageTest.cy.js",
-      "file": "cypress\\e2e\\ProductPageTest.cy.js",
+      "fullFile": "cypress\\e2e\\VerifyCartTest.cy.js",
+      "file": "cypress\\e2e\\VerifyCartTest.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "b795e16c-8d48-4247-8777-0894ebf4caa0",
+          "uuid": "1eb3874b-f61b-4791-9ea9-3d2c524090a9",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -35,32 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "Add products to cart!",
-              "fullTitle": "My SwagLab Test Add products to cart!",
+              "title": "Verify items added to cart successfully!",
+              "fullTitle": "My SwagLab Test Verify items added to cart successfully!",
               "timedOut": null,
-              "duration": 1750,
+              "duration": 2259,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "//LoginPage\nloginPage.getUserNameTextBox().type(this.data.username);\nloginPage.getPasswordTextBox().type(this.data.password);\nloginPage.getLoginButton().click();\nproductPage.getPageTitle().should(\"have.text\", \"Products\");\n//ProductPage\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", \"Your Cart\");",
+              "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkData.checkoutPageText);",
               "err": {},
-              "uuid": "354ab67d-4f0f-4420-8cfe-4b2a922c6560",
-              "parentUUID": "b795e16c-8d48-4247-8777-0894ebf4caa0",
+              "uuid": "f6c457a9-8545-4e48-b0b4-40724fb1cbbf",
+              "parentUUID": "1eb3874b-f61b-4791-9ea9-3d2c524090a9",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "354ab67d-4f0f-4420-8cfe-4b2a922c6560"
+            "f6c457a9-8545-4e48-b0b4-40724fb1cbbf"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1750,
+          "duration": 2259,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -95,7 +95,7 @@
     "marge": {
       "options": {
         "chats": true,
-        "overwrite": true,
+        "overwrite": false,
         "html": false,
         "json": true,
         "reportDir": "cypress/reports"

@@ -24,7 +24,7 @@ describe('My SwagLab Test', function () {
         })
         cy.fixture('checkoutcomplete').then(function (checkoutCompleteData) {
             this.checkoutCompleteData = checkoutCompleteData
-          })
+        })
     })
 
     const loginPage = new LoginPage()
@@ -40,9 +40,7 @@ describe('My SwagLab Test', function () {
 
     it('Verify quantity, price of the each item and total price in the cart!', function () {
 
-        loginPage.getUserNameTextBox().type(this.loginData.username)
-        loginPage.getPasswordTextBox().type(this.loginData.password)
-        loginPage.getLoginButton().click()
+        loginPage.login(this.loginData.username, this.loginData.password)
         productPage.getPageTitle().should("have.text", this.productData.productPageText)
         productPage.getProducts().each(($el, index, $list) => {
             while (index < 2) {
@@ -60,8 +58,26 @@ describe('My SwagLab Test', function () {
         checkoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode)
         checkoutPage.getContinueButton().click()
         checkoutOverviewPage.getPageTitle().should("have.text", this.checkoutOverviewData.checkoutOverviewPageText)
-        checkoutOverviewPage.getCartItemQuantity().should("have.text", this.checkoutOverviewData.cartItemQuantity)
-        checkoutOverviewPage.getCartItemPrice().should("have.text", this.checkoutOverviewData.cartItemPrice)
+        checkoutOverviewPage.getCartItemQuantity().each(($el, index, $list) => {
+            if (index == 0) {
+                const quantityOfFirstItem = $el.text()
+                expect(quantityOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity1)
+            }
+            if (index == 1) {
+                const quantityOfSecondItem = $el.text()
+                expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2)
+            }
+        })
+        checkoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {
+            if (index == 0) {
+                const priceOfFirstItem = $el.text()
+                expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1)
+            }
+            if (index == 1) {
+                const priceOfSecondItem = $el.text()
+                expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2)
+            }
+        })
         checkoutOverviewPage.getCartTotal().should("have.text", this.checkoutOverviewData.cartTotal)
         checkoutOverviewPage.getFinishButton().click()
         checkoutCompletePage.getPageTitle().should("have.text", this.checkoutCompleteData.checkoutCompletePageText)
@@ -69,8 +85,7 @@ describe('My SwagLab Test', function () {
     })
 
     after(function () {
-        productPage.getOpenMenu().click()
-        productPage.getLogoutOption().click()
+        cy.LogoutFromApplication()
         loginPage.getLoginButton().should("have.value", "Login")
     })
 })

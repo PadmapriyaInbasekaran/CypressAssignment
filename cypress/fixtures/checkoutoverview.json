@@ -1,6 +1,8 @@
 {
   "checkoutOverviewPageText": "Checkout: Overview",
-  "cartItemQuantity": "11",
-  "cartItemPrice": "$29.99$9.99",
+  "cartItemQuantity1": "1",
+  "cartItemPrice1": "$29.99",
+  "cartItemQuantity2": "1",
+  "cartItemPrice2": "$9.99",
   "cartTotal": "Total: $43.18"
 }
