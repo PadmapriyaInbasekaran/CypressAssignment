@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-16T15:41:44.208Z",
-    "end": "2023-02-16T15:41:52.792Z",
-    "duration": 8584,
+    "start": "2023-02-17T04:05:28.024Z",
+    "end": "2023-02-17T04:05:35.947Z",
+    "duration": 7923,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "72f69880-ac1a-4818-a225-3fdeac96cbfd",
+      "uuid": "35fd32d4-b033-4670-a673-52af40cc7907",
       "title": "",
       "fullFile": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
       "file": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "785bfc7b-6302-4bca-9309-3147f395a79e",
+          "uuid": "91595ee7-1f06-4322-b4a3-8b886b3a8e33",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Verify quantity, price of the each item and total price in the cart!",
               "fullTitle": "My SwagLab Test Verify quantity, price of the each item and total price in the cart!",
               "timedOut": null,
-              "duration": 6439,
+              "duration": 4551,
               "state": "passed",
-              "speed": "medium",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkoutData.checkoutPageText);\ncheckoutPage.getFirstNameTextBox().type(this.checkoutData.firstname);\ncheckoutPage.getLastNameTextBox().type(this.checkoutData.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", this.checkoutOverviewData.checkoutOverviewPageText);\ncheckoutOverviewPage.getCartItemQuantity().each(($el, index, $list) => {\n  if (index == 0) {\n    const quantityOfFirstItem = $el.text();\n    expect(quantityOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity1);\n  }\n  if (index == 1) {\n    const quantityOfSecondItem = $el.text();\n    expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2);\n  }\n});\nvar x;\nvar y;\nvar priceOfFirstItem;\nvar priceOfSecondItem;\nvar sum;\ncheckoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {\n  if (index == 0) {\n    priceOfFirstItem = $el.text();\n    expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1);\n    x = priceOfFirstItem.split(\"$\");\n    x = x[1];\n  }\n  if (index == 1) {\n    priceOfSecondItem = $el.text();\n    expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2);\n    y = priceOfSecondItem.split(\"$\");\n    y = y[1];\n    sum = Number(x) + Number(y) + Number(3.20);\n    const finalValue = \"Total: $\" + sum;\n    expect(finalValue).to.be.equal(this.checkoutOverviewData.cartTotal);\n  }\n});\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", this.checkoutCompleteData.checkoutCompletePageText);",
+              "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkoutData.checkoutPageText);\ncheckoutPage.getFirstNameTextBox().type(this.checkoutData.firstname);\ncheckoutPage.getLastNameTextBox().type(this.checkoutData.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", this.checkoutOverviewData.checkoutOverviewPageText);\ncheckoutOverviewPage.getCartItemQuantity().each(($el, index, $list) => {\n  if (index == 0) {\n    const quantityOfFirstItem = $el.text();\n    expect(quantityOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity1);\n  }\n  if (index == 1) {\n    const quantityOfSecondItem = $el.text();\n    expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2);\n  }\n});\nvar priceOfFirstItemSplit;\nvar priceOfSecondItemSplit;\nvar priceOfFirstItem;\nvar priceOfSecondItem;\nvar sum;\nconst tax = 3.20;\ncheckoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {\n  if (index == 0) {\n    priceOfFirstItem = $el.text();\n    expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1);\n    priceOfFirstItemSplit = priceOfFirstItem.split(\"$\");\n    priceOfFirstItemSplit = priceOfFirstItemSplit[1];\n  }\n  if (index == 1) {\n    priceOfSecondItem = $el.text();\n    expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2);\n    priceOfSecondItemSplit = priceOfSecondItem.split(\"$\");\n    priceOfSecondItemSplit = priceOfSecondItemSplit[1];\n    sum = Number(priceOfFirstItemSplit) + Number(priceOfSecondItemSplit) + Number(tax);\n    const finalCartTotal = \"Total: $\" + sum;\n    expect(finalCartTotal).to.be.equal(this.checkoutOverviewData.cartTotal);\n  }\n});\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", this.checkoutCompleteData.checkoutCompletePageText);",
               "err": {},
-              "uuid": "87924ee4-9882-4bcd-aacb-d9ffba2e992e",
-              "parentUUID": "785bfc7b-6302-4bca-9309-3147f395a79e",
+              "uuid": "f2504c6e-a347-47f3-8ace-2946b8a5aa5c",
+              "parentUUID": "91595ee7-1f06-4322-b4a3-8b886b3a8e33",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "87924ee4-9882-4bcd-aacb-d9ffba2e992e"
+            "f2504c6e-a347-47f3-8ace-2946b8a5aa5c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6439,
+          "duration": 4551,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

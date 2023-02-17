@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-16T15:41:24.293Z",
-    "end": "2023-02-16T15:41:29.124Z",
-    "duration": 4831,
+    "start": "2023-02-17T04:04:58.515Z",
+    "end": "2023-02-17T04:05:04.470Z",
+    "duration": 5955,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "635c80fd-0861-4c6c-aa77-51ba0ef915dc",
+      "uuid": "ec9b3e16-f56f-4da7-a9c7-4b17fed47e29",
       "title": "",
       "fullFile": "cypress\\e2e\\VerifyCartTest.cy.js",
       "file": "cypress\\e2e\\VerifyCartTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "909d0826-ff21-4e86-b9f8-89392e98d09f",
+          "uuid": "10e4577e-09fb-4cf4-b183-ee09158c6c96",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify items added to cart successfully!",
               "fullTitle": "My SwagLab Test Verify items added to cart successfully!",
               "timedOut": null,
-              "duration": 2242,
+              "duration": 2719,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkData.checkoutPageText);",
               "err": {},
-              "uuid": "55e5975e-a51c-4086-ac98-e39beb61d797",
-              "parentUUID": "909d0826-ff21-4e86-b9f8-89392e98d09f",
+              "uuid": "b7879f79-12a7-4294-a885-de92da59c2f9",
+              "parentUUID": "10e4577e-09fb-4cf4-b183-ee09158c6c96",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "55e5975e-a51c-4086-ac98-e39beb61d797"
+            "b7879f79-12a7-4294-a885-de92da59c2f9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2242,
+          "duration": 2719,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

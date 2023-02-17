@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-16T15:42:15.343Z",
-    "end": "2023-02-16T15:42:19.450Z",
-    "duration": 4107,
+    "start": "2023-02-17T04:06:05.933Z",
+    "end": "2023-02-17T04:06:11.592Z",
+    "duration": 5659,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "0cefd5ae-4a58-4362-9336-46eae1eb0e0a",
+      "uuid": "745294d7-cfed-456f-be14-c00115dcbdbb",
       "title": "",
       "fullFile": "cypress\\e2e\\VerifyProductTest.cy.js",
       "file": "cypress\\e2e\\VerifyProductTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "d0b78a08-5568-464e-85d1-2a195f5ec4bc",
+          "uuid": "b38cab4c-730f-4ee1-bdcb-fbc00a9a174a",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Add products to cart!",
               "fullTitle": "My SwagLab Test Add products to cart!",
               "timedOut": null,
-              "duration": 1957,
+              "duration": 2677,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);",
               "err": {},
-              "uuid": "f9cb117b-d51f-46e3-b577-23f386abe300",
-              "parentUUID": "d0b78a08-5568-464e-85d1-2a195f5ec4bc",
+              "uuid": "68eeadea-f19c-4676-ad8d-1a31d10403f3",
+              "parentUUID": "b38cab4c-730f-4ee1-bdcb-fbc00a9a174a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f9cb117b-d51f-46e3-b577-23f386abe300"
+            "68eeadea-f19c-4676-ad8d-1a31d10403f3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1957,
+          "duration": 2677,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

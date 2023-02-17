@@ -68,26 +68,27 @@ describe('My SwagLab Test', function () {
                 expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2)
             }
         })
-        var x
-        var y
+        var priceOfFirstItemSplit
+        var priceOfSecondItemSplit
         var priceOfFirstItem
         var priceOfSecondItem
         var sum
+        const tax = 3.20
         checkoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {
             if (index == 0) {
                 priceOfFirstItem = $el.text()
                 expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1)
-                x = priceOfFirstItem.split("$")
-                x = x[1]
+                priceOfFirstItemSplit = priceOfFirstItem.split("$")
+                priceOfFirstItemSplit = priceOfFirstItemSplit[1]
             }
             if (index == 1) {
                 priceOfSecondItem = $el.text()
                 expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2)
-                y = priceOfSecondItem.split("$")
-                y = y[1]
-                sum = Number(x) + Number(y) + Number(3.20)
-                const finalValue = "Total: $" + sum
-                expect(finalValue).to.be.equal(this.checkoutOverviewData.cartTotal)
+                priceOfSecondItemSplit = priceOfSecondItem.split("$")
+                priceOfSecondItemSplit = priceOfSecondItemSplit[1]
+                sum = Number(priceOfFirstItemSplit) + Number(priceOfSecondItemSplit) + Number(tax)
+                const finalCartTotal = "Total: $" + sum
+                expect(finalCartTotal).to.be.equal(this.checkoutOverviewData.cartTotal)
             }
 
         })
