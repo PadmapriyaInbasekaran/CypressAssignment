@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-17T04:05:28.024Z",
-    "end": "2023-02-17T04:05:35.947Z",
-    "duration": 7923,
+    "start": "2023-02-17T11:09:22.038Z",
+    "end": "2023-02-17T11:09:28.803Z",
+    "duration": 6765,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "35fd32d4-b033-4670-a673-52af40cc7907",
+      "uuid": "a9b50da5-abc2-4505-a07f-6bff7a9f553e",
       "title": "",
       "fullFile": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
       "file": "cypress\\e2e\\VerifyCheckoutOverviewTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "91595ee7-1f06-4322-b4a3-8b886b3a8e33",
+          "uuid": "20cc5b29-a499-4802-9797-dc4ab73799e3",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify quantity, price of the each item and total price in the cart!",
               "fullTitle": "My SwagLab Test Verify quantity, price of the each item and total price in the cart!",
               "timedOut": null,
-              "duration": 4551,
+              "duration": 3981,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkoutData.checkoutPageText);\ncheckoutPage.getFirstNameTextBox().type(this.checkoutData.firstname);\ncheckoutPage.getLastNameTextBox().type(this.checkoutData.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", this.checkoutOverviewData.checkoutOverviewPageText);\ncheckoutOverviewPage.getCartItemQuantity().each(($el, index, $list) => {\n  if (index == 0) {\n    const quantityOfFirstItem = $el.text();\n    expect(quantityOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity1);\n  }\n  if (index == 1) {\n    const quantityOfSecondItem = $el.text();\n    expect(quantityOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemQuantity2);\n  }\n});\nvar priceOfFirstItemSplit;\nvar priceOfSecondItemSplit;\nvar priceOfFirstItem;\nvar priceOfSecondItem;\nvar sum;\nconst tax = 3.20;\ncheckoutOverviewPage.getCartItemPrice().each(($el, index, $list) => {\n  if (index == 0) {\n    priceOfFirstItem = $el.text();\n    expect(priceOfFirstItem).to.be.equal(this.checkoutOverviewData.cartItemPrice1);\n    priceOfFirstItemSplit = priceOfFirstItem.split(\"$\");\n    priceOfFirstItemSplit = priceOfFirstItemSplit[1];\n  }\n  if (index == 1) {\n    priceOfSecondItem = $el.text();\n    expect(priceOfSecondItem).to.be.equal(this.checkoutOverviewData.cartItemPrice2);\n    priceOfSecondItemSplit = priceOfSecondItem.split(\"$\");\n    priceOfSecondItemSplit = priceOfSecondItemSplit[1];\n    sum = Number(priceOfFirstItemSplit) + Number(priceOfSecondItemSplit) + Number(tax);\n    const finalCartTotal = \"Total: $\" + sum;\n    expect(finalCartTotal).to.be.equal(this.checkoutOverviewData.cartTotal);\n  }\n});\ncheckoutOverviewPage.getFinishButton().click();\ncheckoutCompletePage.getPageTitle().should(\"have.text\", this.checkoutCompleteData.checkoutCompletePageText);",
               "err": {},
-              "uuid": "f2504c6e-a347-47f3-8ace-2946b8a5aa5c",
-              "parentUUID": "91595ee7-1f06-4322-b4a3-8b886b3a8e33",
+              "uuid": "359350ed-1f9d-41e4-90b7-ff8d2186e625",
+              "parentUUID": "20cc5b29-a499-4802-9797-dc4ab73799e3",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f2504c6e-a347-47f3-8ace-2946b8a5aa5c"
+            "359350ed-1f9d-41e4-90b7-ff8d2186e625"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4551,
+          "duration": 3981,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

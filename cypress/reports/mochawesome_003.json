@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-17T04:05:42.456Z",
-    "end": "2023-02-17T04:05:49.897Z",
-    "duration": 7441,
+    "start": "2023-02-17T11:09:33.771Z",
+    "end": "2023-02-17T11:09:39.244Z",
+    "duration": 5473,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6caf098c-9fcf-4f9c-90e6-4157f0576209",
+      "uuid": "b11a002f-2aea-4f2c-9630-ece61e47bff9",
       "title": "",
       "fullFile": "cypress\\e2e\\VerifyCheckOutTest.cy.js",
       "file": "cypress\\e2e\\VerifyCheckOutTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "68e3f328-c669-44a8-bcbb-1ee845c82cc1",
+          "uuid": "2024b63c-1535-4ccd-928d-0b766cc32f0f",
           "title": "My SwagLab Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify checkout details are correct!",
               "fullTitle": "My SwagLab Test Verify checkout details are correct!",
               "timedOut": null,
-              "duration": 4223,
+              "duration": 3206,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "loginPage.login(this.loginData.username, this.loginData.password);\nproductPage.getPageTitle().should(\"have.text\", this.productData.productPageText);\nproductPage.getProducts().each(($el, index, $list) => {\n  while (index < 2) {\n    cy.contains(\"Add to cart\").click();\n    index++;\n  }\n});\nproductPage.getAddToCartButton().click();\ncartPage.getPageTitle().should(\"have.text\", this.cartData.cartPageText);\ncartPage.getListOfProductsAdded().should(\"have.text\", this.cartData.listOfProductsAdded);\ncartPage.getCheckoutButton().click();\ncheckoutPage.getPageTitle().should(\"have.text\", this.checkoutData.checkoutPageText);\ncheckoutPage.getFirstNameTextBox().type(this.checkoutData.firstname);\ncheckoutPage.getLastNameTextBox().type(this.checkoutData.lastname);\ncheckoutPage.getPostalCodeTextBox().type(this.checkoutData.postalcode);\ncheckoutPage.getContinueButton().click();\ncheckoutOverviewPage.getPageTitle().should(\"have.text\", this.checkoutOverviewData.checkoutOverviewPageText);",
               "err": {},
-              "uuid": "144d91a7-a12d-455b-b1b7-cac3d596e076",
-              "parentUUID": "68e3f328-c669-44a8-bcbb-1ee845c82cc1",
+              "uuid": "0ff7be43-10bf-4a17-9897-843666e4506f",
+              "parentUUID": "2024b63c-1535-4ccd-928d-0b766cc32f0f",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "144d91a7-a12d-455b-b1b7-cac3d596e076"
+            "0ff7be43-10bf-4a17-9897-843666e4506f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4223,
+          "duration": 3206,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

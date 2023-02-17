@@ -107,7 +107,7 @@ describe('My SwagLab Test', function () {
         checkoutCompletePage.getPageTitle().should("have.text", this.checkoutCompleteData.checkoutCompletePageText)
         checkoutCompletePage.getThankyouTextMessage().should("have.text", this.checkoutCompleteData.thankyouMessage)
         checkoutCompletePage.getBackToHomeButton().click()
-
+        productPage.getPageTitle().should("have.text", this.productData.productPageText)
     })
 
     after(function () {
